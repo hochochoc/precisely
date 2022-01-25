@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS documents(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR (100) UNIQUE NOT NULL,
+    content json NOT NULL,
+    signee VARCHAR (100) NOT NULL
+    );
