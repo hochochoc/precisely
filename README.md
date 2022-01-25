@@ -9,10 +9,6 @@ Building a RESTful HTTP application in Go to create, read, update, delete docume
 ## Local development
 1. Setup environment
 - Create database (on local or docker MySQL instance)
-- Run migrate
-```
-migrate -source file://./db/migration -database "mysql://username:password@tcp(host:port)/database" up
-```
 - Sync dependencies
 ```
 go mod download
@@ -22,6 +18,12 @@ go mod download
 cp .env.example .env
 ```
 Notes: Replace the values of vars in `.env`
+- Run migrate 
+```
+go install -tags 'mysql' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+migrate -source file://./db/migration -database "mysql://username:password@tcp(host:port)/database" up
+```
+
 2. Run
 ```
 go run main.go
